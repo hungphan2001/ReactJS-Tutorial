@@ -1,31 +1,31 @@
+import logo from './logo.svg';
+import './App.css';
+import { useState } from 'react';
+import Thumbnail from './Thumbnail';
+import Tiltle from './Tiltle';
+import Description from './Description';
+function App() {
 
-import React, { useState } from "react";
-import Large from "./components/Large";
-import Small from "./components/Small";
-const App = () => {
-
-  const listImage = [
-    "images/img-1.jpg",
-    "images/img-2.jpg",
-    "images/img-3.jpg",
-  ]
-
-  const [image, setImage] = useState(listImage[0]);
-  const [checked, setChecked] = useState(0);
-  const updateImg = (url, index) => {
-    setImage(url)
-    setChecked(index)
+  const [show, setShow] = useState(true);
+  const handleClick = (show) => {
+    setShow(show);
   }
   return (
     <>
-      <Large image={image}></Large>
-      <Small
-        listImage={listImage}
-        updateImg={updateImg}
-        checked={checked}></Small>
+      <div id="main">
+        <div className="content-item">
+          <Thumbnail></Thumbnail>
+          <Tiltle
+            show={show}
+            handleClick={handleClick}
+          ></Tiltle>
+          <Description 
+          show={show}
+          handleClick={handleClick}></Description>
+        </div>
+      </div>
     </>
   )
-
 }
 
 export default App;
