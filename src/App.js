@@ -1,31 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import Button from './components/Button';
+import Number from './components/Number';
 import { useState } from 'react';
-import Thumbnail from './Thumbnail';
-import Tiltle from './Tiltle';
-import Description from './Description';
+import store from './redux/store';
+import { Provider } from 'react-redux';
+
 function App() {
 
-  const [show, setShow] = useState(true);
-  const handleClick = (show) => {
-    setShow(show);
-  }
   return (
-    <>
-      <div id="main">
-        <div className="content-item">
-          <Thumbnail></Thumbnail>
-          <Tiltle
-            show={show}
-            handleClick={handleClick}
-          ></Tiltle>
-          <Description 
-          show={show}
-          handleClick={handleClick}></Description>
+    <Provider store={store}>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-sm-12 text-center">
+            <div id="main">
+              <Number></Number>
+              <Button>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
-    </>
-  )
+    </Provider>
+  );
 }
 
 export default App;
