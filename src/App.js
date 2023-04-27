@@ -1,27 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-import Button from './components/Button';
-import Number from './components/Number';
-import { useState } from 'react';
-import store from './redux/store';
 import { Provider } from 'react-redux';
-
+import './App.css';
+import Down from './components/Down';
+import Up from './components/Up';
+import store from './redux/store'
 function App() {
 
   return (
-    <Provider store={store}>
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12 col-md-12 col-sm-12 text-center">
-            <div id="main">
-              <Number></Number>
-              <Button>
-              </Button>
+    <>
+       <Provider store={store}>
+        <div className="container">
+        <div className="row justify-content-center">
+            <div className="col-lg-3 col-md-3 col-sm-8 col-8">
+             <Up></Up>
             </div>
-          </div>
+            <div className="col-lg-3 col-md-3 col-sm-8 col-8">
+            <Down></Down>
+            </div>
         </div>
-      </div>
+    </div>
     </Provider>
+    </>
   );
 }
 
